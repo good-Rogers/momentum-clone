@@ -1,0 +1,316 @@
+/* 기본 설정 및 리셋 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    position: relative;
+}
+
+/* 배경 이미지 스타일 */
+body img {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    filter: brightness(0.7);
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* 날씨 정보 - 우측 상단 */
+#weather {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    font-size: 18px;
+    text-align: right;
+    background: rgba(0, 0, 0, 0.1);
+    padding: 15px 20px;
+    border-radius: 15px;
+    backdrop-filter: blur(5px);
+    animation: fadeIn 1s ease-in;
+}
+
+#weather span:first-child {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+/* 시계 - 중앙 상단 */
+#clock {
+    font-size: 120px;
+    font-weight: 200;
+    letter-spacing: -5px;
+    margin-bottom: 20px;
+    animation: fadeIn 1.5s ease-in;
+}
+
+/* 인사말 */
+#greeting {
+    font-size: 48px;
+    font-weight: 300;
+    margin-bottom: 40px;
+    animation: fadeIn 2s ease-in;
+}
+
+/* 로그인 폼 */
+#login-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    animation: fadeIn 1s ease-in;
+}
+
+#login-form input {
+    font-size: 32px;
+    padding: 15px 30px;
+    border: none;
+    border-bottom: 3px solid rgba(255, 255, 255, 0.8);
+    background: transparent;
+    color: white;
+    text-align: center;
+    outline: none;
+    width: 400px;
+    transition: all 0.3s ease;
+}
+
+#login-form input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+#login-form input:focus {
+    border-bottom-color: white;
+    transform: scale(1.05);
+}
+
+#login-form button {
+    font-size: 18px;
+    padding: 12px 40px;
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+#login-form button:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* 할 일 폼 */
+#todo-form {
+    margin-bottom: 20px;
+}
+
+#todo-form input {
+    font-size: 20px;
+    padding: 12px 25px;
+    border: none;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.6);
+    background: transparent;
+    color: white;
+    text-align: center;
+    outline: none;
+    width: 450px;
+    transition: all 0.3s ease;
+}
+
+#todo-form input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+#todo-form input:focus {
+    border-bottom-color: white;
+    transform: scale(1.02);
+}
+
+/* 할 일 목록 */
+#todo-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-height: 250px;
+    overflow-y: auto;
+    padding: 10px;
+    margin-bottom: 150px;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+}
+
+#todo-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+#todo-list::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+#todo-list::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 3px;
+}
+
+#todo-list li {
+    background: rgba(0, 0, 0, 0.15);
+    padding: 12px 20px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    backdrop-filter: blur(5px);
+    animation: slideIn 0.3s ease-out;
+    transition: all 0.3s ease;
+}
+
+#todo-list li:hover {
+    background: rgba(0, 0, 0, 0.25);
+    transform: translateX(5px);
+}
+
+#todo-list li span {
+    font-size: 18px;
+}
+
+#todo-list li button {
+    background: transparent;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    opacity: 0.7;
+}
+
+#todo-list li button:hover {
+    transform: scale(1.3);
+    opacity: 1;
+}
+
+/* 명언 - 하단 중앙 */
+#quote {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    max-width: 800px;
+    background: rgba(0, 0, 0, 0.1);
+    padding: 20px 30px;
+    border-radius: 15px;
+    backdrop-filter: blur(5px);
+    animation: fadeIn 2.5s ease-in;
+}
+
+#quote span:first-child {
+    display: block;
+    font-size: 20px;
+    font-style: italic;
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+#quote span:last-child {
+    display: block;
+    font-size: 16px;
+    opacity: 0.8;
+}
+
+/* 애니메이션 */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+    #clock {
+        font-size: 80px;
+    }
+
+    #greeting {
+        font-size: 32px;
+    }
+
+    #login-form input,
+    #todo-form input {
+        width: 90vw;
+        max-width: 350px;
+        font-size: 20px;
+    }
+
+    #weather {
+        top: 20px;
+        right: 20px;
+        font-size: 14px;
+        padding: 10px 15px;
+    }
+
+    #quote {
+        bottom: 30px;
+        max-width: 90vw;
+        padding: 15px 20px;
+    }
+
+    #quote span:first-child {
+        font-size: 16px;
+    }
+
+    #quote span:last-child {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    #clock {
+        font-size: 60px;
+    }
+
+    #greeting {
+        font-size: 24px;
+        margin-bottom: 30px;
+    }
+
+    #todo-list li span {
+        font-size: 16px;
+    }
+}
