@@ -16,3 +16,7 @@ npm-debug.log*
 # Environment variables
 .env
 .env.local
+
+# Study files (keep local only)
+Assignment/
+CLAUDE.md
